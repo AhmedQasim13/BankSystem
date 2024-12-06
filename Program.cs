@@ -156,20 +156,16 @@ namespace Inheritance___operator_overloading
         public override bool Withdraw(double amount)
         {
             Console.WriteLine(DateTime.Now);
-            if (DateTime.Now != finalDate && amount < Balance * .2 && Count < 3)
+            if (DateTime.Now < finalDate )
             {
                 Count++;
+            }
+            if (amount < Balance * .2 && Count <= 3)
+            {                
                 return base.Withdraw(amount);
             }
-            else if (DateTime.Now == finalDate)
-            {
-                Count=0;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false;
+        
         }
         public override string ToString()
         {
